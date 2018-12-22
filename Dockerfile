@@ -16,3 +16,7 @@ RUN apt-get install -yq \
 RUN apt-get install -y \
     libnotify-dev \
     xvfb
+
+# Java for Selenium
+RUN apt-get install -yq openjdk-8-jre-headless \
+  && sed -i 's/securerandom\.source=file:\/dev\/random/securerandom\.source=file:\/dev\/urandom/' ./usr/lib/jvm/java-8-openjdk-amd64/jre/lib/security/java.security
