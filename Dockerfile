@@ -1,4 +1,4 @@
-FROM node:10
+FROM node:lts
 
 RUN apt-get update -y
 
