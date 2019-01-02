@@ -1,0 +1,21 @@
+version: 2
+jobs:
+  test:
+    machine: true
+    working_directory: ~/project
+    steps:
+      - checkout
+      - run:
+          name: Build docker image
+          command: |
+            docker build -t vuejs/ci .
+      - run:
+          name: docker info
+          command: |
+            docker run --rm --name envinfo vuejs/ci bash -c "npm i -g envinfo && envinfo"
+
+workflows:
+  version: 2
+  perfs:
+    jobs:
+      - test
