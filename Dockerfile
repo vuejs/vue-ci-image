@@ -1,4 +1,4 @@
-FROM node:lts
+FROM node:current
 
 RUN apt-get update -y
 
